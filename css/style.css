@@ -1,0 +1,67 @@
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(8px) rotate(0deg); 
+  }
+  to {
+    transform: rotate(360deg) translateX(8px) rotate(-360deg); 
+  } 
+}
+
+.action-button-wrap {
+  display: inline-flex; 
+}
+
+.action-button {
+  position: relative;
+  display: block;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  line-height: 1;
+  border: none;
+  border-radius: 30px;
+  appearance: none;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  transition: width 0.25s cubic-bezier(0.91, -0.01, 0.15, 0.99), background-color 0.5s ease-in-out;
+  font-family: "azo-sans-web", Sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  background-color: #00AED6;
+  color: #fff; 
+}
+
+.action-button:hover {
+  background-color: #232323;
+  color: #FFF; 
+}
+
+.action-button::after {
+  display: none;
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 17px;
+  z-index: 1;
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 100%;
+  animation: orbit 0.5s linear infinite; 
+}
+
+.action-button.is-loading {
+  width: 40px; 
+}
+
+.action-button.is-loading::after {
+  display: block; 
+}
+
+.action-button.is-loading span {
+  opacity: 0; 
+}
